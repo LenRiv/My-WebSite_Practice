@@ -1,0 +1,405 @@
+/** Reseteo de estilos **/
+* {
+  margin: 0;
+  /*Eliminamos los margenes predeterminados*/
+  padding: 0;
+  /*Elimina el relleno interno de todos los elementos*/
+  box-sizing: border-box;
+  /*Establece un modelo de caja con lo que el tamaño total incluye el contenido,el relleno y el borde*/
+  font-family: 'Nunito', sans-serif;
+  /*Tipo de fuente para todos los elementos*/
+}
+
+/** Cabecera **/
+.header {
+  position: absolute;
+  /*Posicion absoluta para la cabecera*/
+  width: 100%;
+  /*Ancho del elemento*/
+  z-index: 2;
+  /*Posiciona el elemento por encima del video y la transparencia*/
+  display: flex;
+  /*Pone los elementos en linea y los distribuye automaticamente*/
+  justify-content: space-between;
+  /*Alineacion horizontal de los elementos con espacio entre ellos*/
+  align-items: center;
+  /*Texto centrado*/
+}
+
+/** Posicion del video de fondo */
+video {
+  width: 100%;
+  /*Ancho al 100% de su contenedor*/
+  height: 100%;
+  /*Alto al 100% del contenedor*/
+  position: absolute;
+  /*Posicion absoluta para que sea mas preciso con respecto al contenedor*/
+  top: 0;
+  /*Parte superior del contenedor*/
+  left: 0;
+  /*Parte izquierda del contenedor*/
+  overflow: hidden;
+  /*Para que no se muestre contenido fuera*/
+  object-fit: cover;
+  /*Ajusta el contenido cubriendo todo el espacio*/
+}
+
+/** Logo */
+.header__logo {
+  position: relative;
+  /*Posicion relativa con respecto al padre*/
+  text-transform: uppercase;
+  /*Transforma el texto a mayusculas*/
+  font-size: 2rem;
+  /*Tamaño de la fuente*/
+  font-weight: 700;
+  /*Grosor de la fuente*/
+  margin-top: 40px;
+  /*Margen superior*/
+  margin-left: 80px;
+  /*Margen izquierdo*/
+  color: #fff;
+  /*Color del texto*/
+  text-shadow: 2px 0px rgba(4, 3, 3, 0.2);
+  /*Sombra con desplazamiento horizontal y semitransparente*/
+  transition: 1s;
+  /*Transición suave para los cambios de estilos*/
+}
+
+
+/** Cargamos la imagen del menú **/
+.header__toggle {
+  background: url(/img/nav.png);
+  /*Imagen con el valor url()*/
+  background-position: center;
+  /*Fondo de manera centrado vertical y horizontalmente*/
+  background-repeat: no-repeat;
+  /*Establece que la imagen de fondo no se repetirá en el elemento*/
+  background-size: 30px;
+  /*Margen alrededor que crea un espacio*/
+  cursor: pointer;
+  /*Cambia el cursor del ratón cuando pasa por encima,indicando que el elemento es interactivo*/
+  position: relative;
+  /*Posicion relativa con respecto al documento*/
+  display: flex;
+  /*Modelo de caja flexible para distribuir los elementos que contiene*/
+  justify-content: center;
+  /*Centra los elementos horizontalmente*/
+  align-items: center;
+  /*Centra los elementos verticalmente*/
+  width: 50px;
+  /*Establece el ancho del elemento*/
+  height: 50px;
+  /*Establece el alto del elemento*/
+
+  
+}
+
+
+/**Pseudo-clase que agrega contenido antes del elemento .header__toggle*/
+.header__toggle:before {
+  content: 'Menu';
+  /*Contenido donde se muestra el texto 'MENU'*/
+  position: absolute;
+  /*Posicion absoluta con respecto al padre*/
+  right: 50px;
+  /*Distancia al borde derecho*/
+  padding: 3px;
+  /*Espacio entre el contenido y los bordes*/
+  border-radius: 4px;
+  /*Esquinas suavizadas*/
+  background: #ffffffd1;
+  /*Color de fondo*/
+  letter-spacing: 1.5px;
+  /*Espacio entre letras*/
+  font-size: 1rem;
+  /*Tamaño de la fuente*/
+  color: #1f1d1d9c;
+  /*Color de la letra*/
+}
+
+
+
+/** Cuando en el padre se activa la clase "isActivated" hay cambios en el fondo,posición,margen y cursor */
+.isActivated.header__toggle {
+  background: url();
+  /*Imagen con el valor url() vacío*/
+  background-position: center;
+  /*Fondo centrado vertical y horizontalmente*/
+  background-repeat: no-repeat;
+  /*Establece que la imagen de fondo no se repetirá en el elemento*/
+  background-size: 25px;
+  /*Tamaño de la imagen de fondo a 25 píxeles*/
+  margin: 50px;
+  /*Margen alrededor que crea un espacio entre el elemento y su alrededor*/
+  cursor: pointer;
+  /*Cambia el cursor del ratón cuando pasa por encima,indicando que el elemento es interactivo y se puede hacer clic*/
+}
+
+/** Estilos del contenido principal */
+main {
+  width: 100%;
+  /*Ancho del MAIN al 100% del padre*/
+  min-height: 100vh;
+  /*Altura minima al 100% de la altura del viewport*/
+  position: relative;
+  /*Posicion relativa para posicionar elemntos dentro de el*/
+  display: flex;
+  /*Modelo de caja flexible para distribuir los elementos que contiene*/
+  justify-content: center;
+  /*Centrar elementos horizontalmente*/
+  align-items: center;
+  /*Centrar elementos verticalmente*/
+  overflow: hidden;
+  /*Evita que el contenido se salga*/
+}
+
+
+
+/** Capa traslúcida */
+.transparent__screen {
+  position: absolute;
+  /*Absolute para ser mas precisos en el posicionamiento*/
+  width: 40%;
+  /*Ancho del elemento*/
+  height: 100%;
+  /*Alto del elemento*/
+  top: 0;
+  /*En la parte superior*/
+  left: 0;
+  /*En la izquierda*/
+  z-index: 1;
+  /*Posiciona la transparencia por encima del video de fondo*/
+  backdrop-filter: blur(10px);
+  /* Efecto de desenfoque */
+  box-shadow: 10px 0 15px rgba(63, 64, 61, 0.3);
+  /*Para darle profundidad*/
+  transition: 1s;
+  /*Transición suave para los cambios del elemento*/
+}
+
+/** Cuando se activa el padre que tiene la clase "isActivated", cambia el ancho, la altura y el efecto de desenfoque con(backdrop-filter) */
+.isActivated .transparent__screen {
+ width: 100%;
+ /*Ancho del 100% en su contenedor*/
+ height: 50vh;
+ /*Alto del 50% en referencia al viwport, el 50% de la altura visible de la página*/
+ backdrop-filter: blur(20px);
+ /*Filtro de desenfoque al elemento con un radio de 20 píxeles*/
+ transition-delay: 0.1s;
+ /*Retraso de 0.1 segundos antes de que se inicien los estilos al activarse el elemento*/
+}
+
+
+/** Tamaño y estilos - DIV de texto */
+.block {
+  position: relative;
+  /*Posición del elemento como relativa en relación con su posición original*/
+  text-align: center;
+  /*Centra el contenido del bloque con el eje horizontal*/
+  z-index: 1;
+  /*Posiciona el bloque por encima del video de fondo y la transparencia*/
+  opacity: 1;
+  /*Opacidad del bloque para hacerlo visible*/
+  visibility: visible;
+  /*Bloque visible*/
+  transition: 0.5s;
+  /*Transición suave de 0.5 para los cambios*/
+  transition-delay: 1s;
+  /*Retraso de 1 segundo en la transición*/ 
+}
+
+
+
+/** Estilos texto h2 */
+.block__title {
+  font-size: 1.8rem;
+  /*Tamaño de fuente*/
+  font-weight: 500;
+  /*Grosor de la letra*/
+  line-height: 2rem;
+  /*Altura de línea*/
+  letter-spacing: 1.5px;
+  /*Espaciado entre letras*/
+  padding: 10 10px;
+  /*Relleno de 10 superior e inferior, 10 izquierdo y derecho*/
+  color: #ffffffdb;
+  /*Color de texto*/
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  /*Sombra de texto con desplazamiento y opacidad*/
+  /*0 -> Despalzamiento de sombre horizontal, 5px-> Sombre hacia abajo, 5px->Difuminado en todas las direcciones, 
+  rgba(0, 0, 0, 0.5);-> Color negro con sombra semitransparente 0.5*/
+}
+
+
+
+/** Estilos texto parrafo */
+.block__descritption {
+  font-size: 1.8rem;
+  /*Tamaño de fuente*/
+  font-weight: 400;
+  /*Grosor de la letra*/
+  letter-spacing: 2px;
+  /*Espaciado entre letras*/
+  background: #e5e2e26e;
+  /*Color en formato con transparencia*/
+  color: #262424;
+  /*Color de texto*/
+  border-radius: 3px;
+  /*Radio del borde*/
+  padding: 10 10px;
+  /*Relleno de 0 superior e inferior, 10 izquierdo y derecho*/
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  /*Sombra del texto con desplazamiento y opacidad*/
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  /*Sombra de la caja con desplazamiento y opacidad*/
+}
+
+
+/** Estos estilos se activan cuando el padre está activo */
+.isActivated .block {
+  visibility: hidden;
+  /*Oculta el elemento*/
+  opacity: 0;
+  /*Opacidad a 0 y lo hace transparente.*/
+  transition-duration: 0.8s;
+  /*Duracion del efecto*/
+  transition-delay: 0s;
+  /*Especifica el tiempo de transición a 0 segundos.Los cambios se aplican inmediatamente sin ningún retraso*/
+  transform: translateX(-200px);
+  /*Transformación o animación del elemento para desplazarlo en el eje X (-200px hacia la izquierda en este caso)*/
+}
+
+
+/**El uso combinado de opacity y visibility puede ser útil cuando quieres que el elemento se desvanezca gradualmente, animando la transición de opacity para crear el efecto y luego establecer visibility: hidden; para ocultar completamente el elemento cuando termina la animación*/
+
+.footer {
+  position: absolute;
+  /*Posición absoluta para posicionarlo de manera precisa en relación al padre*/
+  bottom: 40px;
+  /*Distancia entre el footer y la parte inferior*/
+  right: 100px;
+  /*Distancia entre el elemento y el lado derecho de su contenedor*/
+  display: flex;
+  /*Modelo de caja flexible para distribuir los elementos que contiene*/
+}
+
+
+/** Menú pie de pagina */
+.footer__li {
+  list-style: none;
+  /*Elimina estilos de viñeta y numeración*/
+  margin: 5px;
+  /*Margen en todos los lados*/
+  padding: 0 6px;
+  /*Relleno de 0 en la parte superior e inferior y 6px en los lados izquierdo y derecho*/
+  background: #ffffff4a;
+  /*Color de fondo y transparencia*/
+  border-radius: 3px;
+  /*Radio del borde*/
+  transition: 0.5s;
+  /*Transición suave en las propiedades que cambien*/
+
+}
+
+.footer__li a {
+  display: inline-block;
+  /*Bloque en línea,permite que otros elementos se muestren en la misma línea respetando el ancho y alto*/
+  text-decoration: none;
+  /*Elimina el subrayado del enlace*/
+  font-weight: 500;
+  /*Grosor de la fuente(seminegrita)*/
+  font-size: 15px;
+  /*Tamaño de la fuente*/
+  color: #111;
+  /*Color del texto*/
+  letter-spacing: 1.5px;
+  /*Espacio entre letras*/
+}
+
+
+
+/**Cuando el elemento padre tiene la clase "isActivated", se aplicarán los estilos definidos.*/
+.isActivated .footer__li {
+  opacity: 0;
+  /*Opacidad en 0 que lo hace transparente*/
+  visibility: hidden;
+  /*hace que el elemento pase a no visible*/
+  transform: translate(100px);
+  /*Mejora el efecto */
+}
+
+
+/** Menu principal */
+.menu {
+  position: absolute;
+  /*Posicion absoluta con respecto al padre*/
+  left: 25%;
+  /*Se desplaza hacia la derecha*/
+  transform: translate(-50%, -50%);
+  /*Crea una transicion en la altura y en el ancho del padre*/
+  z-index: 1;
+  /*Posiciona el elemento por encima de la cortina transparente*/
+
+}
+
+.menu__li {
+  list-style: none;
+  /*elimina los estilos de los elementos de la lista*/
+  text-align: center;
+  /*Centra el texto dentro del contenedor*/
+  margin: 15px 0;
+  /*Margen inferiror entre los elementos de la lista para separarlos*/
+  opacity: 0;
+  /*Hace transparente los elementos de la lista y mejora el resultado del efecto*/
+  visibility: hidden;
+  /*Oculta la lista*/
+  transition: 0.5s;
+  /*Duracion de la transicion*/
+  transform: translate(250px);
+  /*Desplazamiento horizontal para realzar el efecto de cambio de estado del texto*/
+}
+
+
+/** Enlaces del menú */
+.menu__li a {
+  color: #161414;
+  /*Color de la letra*/
+  font-size: 2rem;
+  /*Tamaño de la fuente*/
+  letter-spacing: 4px;
+  /*Espacio entre letras*/
+  text-decoration: none;
+  /*Quita la decoracion inferior del enlace*/
+  font-weight: 700;
+  /*Tamaño de la fuente del texto*/
+  background: #6fed6b23;
+  /*Color de fondo con tranparencia*/
+  padding: 4px 10px;
+  /*Define un espacio en la parte superior e inferior y en los lados izquierdo y derecho*/
+  display: inline-block;
+  /*Lo establece como un elemento de bloque en línea para que se muestre en la misma línea con los otros elementos,manteniendo las propiedades de espaciado y el tamaño*/
+}
+
+.menu__li a:hover {
+  background: #8c8ca585;
+  /*Cambia el color del fondo al hacer hover*/
+  color: #161414;
+  /*Cambia el color de texto al hacer hover*/
+  letter-spacing: 10px;
+  /*Más espaciado entre letras al hacer hover*/
+}
+
+/**Los elementos con la clase "menu__li" cambiarán la opacidad,visibilidad y posición cuando el elemento padre tenga la clase "isActivated"*/
+/** Menu visible y sin cambios cuando esta activo*/
+.isActivated .menu__li {
+  opacity: 1;
+  /*Opacidad a 1 para que sea visible*/
+  visibility: visible;
+  /*Hace al elemento visible*/  
+}
+
+
+
+
+/**Resumiendo,el CSS actua sobre el estilo de los elementos HTML que hemos especificado, cuando se activa la clase "isActivated" en (header__toggle). Los elementos afectados son: de menú (menu__li), de pie de página (footer__li) y la capa transparente (transparent__screen). La clase active se agrega o se quita mediante JavaScript*/
